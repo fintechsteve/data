@@ -1,5 +1,5 @@
 # IMFS Data Science Competition - Summer 2019
-### Last update: May 1st 2019
+### Last update: July 1st 2019
 
 ## Welcome!
 The Office of Investment Management Fintech Strategies (IMFS) is excited to announce the kick-off of our second annual data science collaborative and friendly competition. This collaborative effort brings together crew from across IMG and IMS that have an interest in learning about data science and getting some hands on experience. Beginning in late July, all interested crew members will be split up into teams to participate in a Data Science competition. The IMFS data science team has lined up an interesting problem to tackle and we hope that as many people that are interested in can join us.
@@ -21,9 +21,11 @@ Four hours a week, for four weeks (from July 8th to August 7th) + one hour durin
 If a winner, one or two additional hour(s) to prepare slides and demo on August 14th 2018.
 
 ## What (The Challenge)
-How to build a recommendation system of similar bonds within the trading universe of an investment portfolio or fund?  How to predict potentially rich and cheap bonds within a portfolio?
+How to build a recommendation system of similar bonds within the trading universe of an investment portfolio or fund? 
 
-A portfolio manager (PM) manages multiple securities within a fund. Sometimes, she is not able to purchase all bonds in her trading universe. Otherwise, her preferred bonds may not be available.  In this project, the goal is to provide the PM with a toolkit to find similar bonds to the ones she originally wanted, as well as a list of bonds most likely to be rich or cheap. A bond is considered rich when it is trading at a price higher than its peers, or higher than historical norms.
+--Need Steve to complement the story--
+
+A portfolio manager (PM) manages multiple securities within a fund. Sometimes, she is not able to purchase all bonds in her trading universe. Otherwise, her preferred bonds may not be available. In this project, the goal is to provide the PM with a toolkit to find similar bonds to the ones she originally wanted in the same day. In this challenge, you are to asked to predict top 10 similar bonds for each target bond in the test set in the same day; as long as the top 10 similar bonds contain the NearestISIN of the target, you successfully predict correct for this target. 
 
 ### The inspiration behind this challenge: Viktoriya Bondarenko and [this](../master/templates/JPM_ Identifying Rich Cheap bonds with Big Data.pdf) paper by JPM.
 
@@ -41,29 +43,17 @@ The data is proprietary to Vanguard so you must NOT share it publicly (outside o
 Here’s a brief rundown of what you need to do:
    1. Join the competition on Slack at "**#ext-ds-competition**". You will receive an invitation to the competition's slack channel. Please say hello to confirm your participation.
 
-   2. Review git commands. [Here](https://github.com/joshnh/Git-Commands) is a good refresher.
+   2. Run code in Kaggle Kernel(recommended way) or clone this repository locally and create a git branch where you will work on your own
 
-   3. Clone this repository locally
+   3. Use the dataset provided to train your model (good practice to split your dataset into training, testing and validation samples). Your model must take as an input a desired security "ISIN" and return the top 10 similar bonds of this bond.
 
-   4. Create a git branch where you will work on your own
+   4. Save the result file in the format "Team_X.csv"(X represents team number) in Kaggle Kernel.
 
-   5. Use the dataset provided to train your model (good practice to split your dataset into training, testing and validation samples). Your model must take as an input a desired security "Security_desired" and return the following:
-      1. In descending order, the top 10 similar securities to the "Security_desired", ranked in descending order from best to worst similarity
-      2. A column that determines how cheap or rich each of the 10 recommended security is, against itself.
-      3. A column that ranks, in descending order, the 10 recommended securities from richest to cheapest.
-      4. See an example of expected output "***securityRecommendation.csv***"
-
-   6. When you are ready to submit your work, run your model for each of the five test securities in the ["***testSecurities.csv***" dataset](../master/submissions/testSecurities.csv). Save the outputs for each recommendation per the template ["***securityRecommendation.csv***"](../master/templates/securityRecommendation.csv). Each recommendation should be saved as "***securityISIN_Recommendation.csv***" under your [team folder](../master/submissions). For example, your recommendation for security "US00037BAD47" would be saved as "US00037BAD47_Recommendation.csv"
-
-   7. Submit your submission under your team's folder [here](../master/submissions).
-
-   8. Confirm your submissions are present in the "submission" folder in the main repository by the deadline
-
-   9. Post "Done with project - yourteamname" in the "**#ext-ds-competition**" Slack channel
+   5. Confirm your submissions are present in the "submission" folder in the main repository by the deadline
 
 3. Ground of truth and grading
 IMFS holds a model built with the same data, in collaboration with the Spring 2019 cohort from the Columbia Data Science Institute. This model is used as ground of truth.
-   1. You will get perfect score if your recommendations match the Columbia model perfectly. Otherwise, points will de deduced for each incorrect match.
+   1. You will get perfect score if your recommendation contain the NearestISIN for each ISIN in 'test_set.pkl'. Otherwise, points will de deduced for each incorrect match.
 
    2. The winning team (with highest score) will be presented with a trophy and free Galley lunch passes. In case of a tie, we will provide an additional test set to determine a winner.
 
