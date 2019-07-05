@@ -1,4 +1,4 @@
-#2019 IMFS Data Science Competition - Netflix for Bonds#
+2019 IMFS Data Science Competition - Netflix for Bonds
 
 Week 0 - Setting Up
 Welcome to the 2019 IMFS Competition!
